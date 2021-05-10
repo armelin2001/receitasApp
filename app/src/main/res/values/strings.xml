@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="item1">Item1</string>
+    <string-array name="">
+        <item>Grama</item>
+        <item>kilo</item>
+        <item>Mile litro</item>
+        <item>Litro</item>
+        <item>Xícara</item>
+    </string-array>
+</resources>
