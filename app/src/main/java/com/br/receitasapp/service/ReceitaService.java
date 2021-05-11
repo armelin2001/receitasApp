@@ -15,6 +15,7 @@ public class ReceitaService {
         return instance;
     }
     private ReceitaRepositoryImpl receitaRepository;
+    //chamar a service de ingrediente
     private ArrayList<Receita> receitas;
     private Context context;
     /**

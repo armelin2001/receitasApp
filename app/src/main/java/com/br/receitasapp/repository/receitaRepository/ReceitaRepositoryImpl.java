@@ -67,11 +67,27 @@ public class ReceitaRepositoryImpl extends SQLiteOpenHelper implements ReceitaRe
 
     @Override
     public int updateReceita(Receita receita) {
-        return 0;
+        SQLiteDatabase database = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ValuesUtils.DB_TABLE_RECEITA_IMG_URI,receita.getImgUri());
+        values.put(ValuesUtils.DB_TABLE_RECEITA_IMG_NAME,receita.getImgName());
+        values.put(ValuesUtils.DB_TABLE_RECEITA_NAME,receita.getNomeReceita());
+        values.put(ValuesUtils.DB_TABLE_RECEITA_QTD_PESSOAS,receita.getNomeReceita());
+        String id = String.valueOf(receita.getId());
+        int count = database.update(ValuesUtils.DB_TABLE_RECEITA,
+                values,ValuesUtils.DB_TABLE_INGREDIENTE_ID+"=?"
+                ,new String[]{id});
+        database.close();
+        return count;
     }
 
     @Override
     public int removeReceita(Receita receita) {
-        return 0;
+        SQLiteDatabase database = getWritableDatabase();
+        String id = String.valueOf(receita.getId());
+        int count = database.delete(ValuesUtils.DB_TABLE_RECEITA,
+                ValuesUtils.DB_TABLE_RECEITA_ID+"=?",
+                new String[]{id});
+        return count;
     }
 }

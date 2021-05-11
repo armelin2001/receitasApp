@@ -73,7 +73,13 @@ public class IngredienteRepositoryImpl extends SQLiteOpenHelper implements Ingre
 
     @Override
     public int removeIngrediente(Ingrediente ingrediente) {
-        return 0;
+        SQLiteDatabase database = getWritableDatabase();
+        String id = String.valueOf(ingrediente.getId());
+        int count = database.delete(ValuesUtils.DB_TABLE_INGREDIENTE,
+                ValuesUtils.DB_TABLE_INGREDIENTE_ID+"=?",
+                new String[]{id});
+        database.close();
+        return count;
     }
 
 }

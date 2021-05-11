@@ -20,7 +20,7 @@ public class IngredienteService {
         ingredienteRepository = new IngredienteRepositoryImpl(context);
         ingredientes = ingredienteRepository.getAllIngredientes();
     }
-    public  ArrayList<Ingrediente> getIngredientes(){return ingredientes;}
+    public ArrayList<Ingrediente> getIngredientes(){return ingredientes;}
     public void addIngrediente(Ingrediente ingrediente){
         long id = ingredienteRepository.createIngrediente(ingrediente);
         if(id>0){
